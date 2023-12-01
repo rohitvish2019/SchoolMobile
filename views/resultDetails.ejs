@@ -1,0 +1,97 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/result_details.css">
+</head>
+<body>
+    <div class="header-container">
+        <%- include('_header'); %>
+    </div>
+    <div class="upper-center">
+        <h3 style="margin-bottom: 1%;">Student Details</h3>
+        <div class="student-details-mob">
+            <div class="std-item">
+                <label for=""><small>Admission No</small></label>
+                <label for="" id="AdmissionNoFees"><b><%=student.AdmissionNo%></b></label>
+            </div>
+            <div class="std-item">
+                <label for=""><small>Name</small></label>
+                <label for=""><b><%=student.FirstName%> <%=student.LastName%></b></label>
+            </div>
+            <br>
+            <div class="std-item"> 
+                <label for=""><small>Class</small></label>
+                <label for=""><b><%=student.Class%></b></label>
+            </div>
+            <br>
+            <div class="std-item">
+                <label for=""><small>Father's Name</small></label>
+                <label for=""><b><%=student.FathersName%></b></label>
+            </div>
+            <br>
+            <div class="std-item">
+                <label for=""><small>Mother's Name</small></label>
+                <label for=""><b><%=student.MothersName%></b></label>
+            </div>
+        </div>
+    </div>
+    <div class="body-container">
+        <div class="left-side-panel">
+            <div class="student-details news-container">
+                <h3 style="margin-bottom: 10%;">Student Details</h3>
+                <label hidden id="AdmissionNo" for=""><%=student.AdmissionNo%></label>
+                <div>
+                    <label for=""><small>Name</small></label>
+                    <label for=""><b><%=student.FirstName%> <%=student.LastName%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Class</small></label>
+                    <label for="" id="studentClass"><b><%=student.Class%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Father's Name</small></label>
+                    <label for=""><b><%=student.FathersName%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Mother's Name</small></label>
+                    <label for=""><b><%=student.MothersName%></b></label>
+                </div>
+            </div>
+        </div>
+        <div class="center-body">
+            
+            
+            <div class="selector">
+                <select name="" id="selectTerm"></select>
+            </div>
+            <div class="items-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks Obtained</th>
+                            <th>Total Marks</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-container">
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" onclick="updateResult()">Update</button>
+                <a href="/student/getMarksheet/<%=result[0].AdmissionNo%>?Class=<%=result[0].Class%>" class="btn btn-primary">Get Marksheet</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="/js/result_details.js"></script>

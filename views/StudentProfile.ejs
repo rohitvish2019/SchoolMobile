@@ -1,0 +1,235 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+    <link rel="stylesheet" href="/css/studentProfile.css">
+</head>
+<body>
+    <div class="header-container">
+        <%- include('_header'); %>
+    </div>
+    <div class="body-container">
+        
+        <div class="upper-center">
+            <h5>Quick Actions</h5>
+            <a href="/student/get/<%=data.AdmissionNo%>?Class=<%=data.Class%>&action=fee" class="btn btn-success">Fees Details</a>
+            <a href="/student/get/<%=data.AdmissionNo%>?Class=<%=data.Class%>&action=result" class="btn btn-success">Result Details</a>
+        </div>
+        <div class="center-body">
+            <form action="/student/updateProfile" method="POST" class="container" id="admissionForm" onsubmit="generatePDF()">
+                <div id="toPDF">
+                    <input type="text" name="id" id="id" hidden value="<%=data._id%>">
+                    <h5>Academic details</h5>
+                    <div id="school-Info" style="display: flex; flex-wrap: wrap; margin-top: 1%; border-bottom: 1px solid black;">
+                        <div class="gen-info">
+                            <label>Class</label>
+                            <input id="class" class="form-input" readonly required name="Class" style="width: 100%;" value="<%=data.Class%>">
+                        </div>
+                        <div class="gen-info">
+                            <label>Admission No</label>
+                            <input id="admno" class="form-input" readonly type="text" name="AdmissionNo" value="<%=data.AdmissionNo%>">
+                        </div>
+                        <div class="gen-info">
+                            <label>Medium</label>
+                            <input class="form-input" readonly type="text" name="Medium" value="<%=data.Medium%>">
+                            
+                        </div>
+                        <div class="gen-info">
+                            <label>Session</label>
+                            <input id="session" class="form-input" readonly type="text" name="Session" value="<%=data.Session%>">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-headings">
+                            <h5>General information</h5>
+                            <a id="General" class="showHideInfo btn btn-light">Show</a>
+                        </div>
+                        
+                        <div id="General-info">
+                            <div class="gen-info">
+                                <label>First Name</label>
+                                <input class="form-input" readonly required name="FirstName" type="text" value="<%=data.FirstName%>" id="fname">
+                            </div>
+                            <div class="gen-info">
+                                <label >Last Name</label>
+                                <input class="form-input" readonly required name="LastName" type="text" value="<%=data.LastName%>" id="lname">
+                            </div>
+                            <div class="gen-info">
+                                <label>Father's Name</label>
+                                <input class="form-input" readonly name="FathersName" type="text" value="<%=data.FathersName%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Mother's Name</label>
+                                <input class="form-input" readonly name="MothersName" type="text" value="<%=data.MothersName%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Aadhar No</label>
+                                <input class="form-input" readonly  name="AadharNumber" type="text" value="<%=data.AadharNumber%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Samagra ID</label>
+                                <input class="form-input" readonly name="SSSM" type="text" value="<%=data.SSSM%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Mob No</label>
+                                <input class="form-input" readonly type="text" value="<%=data.Mob%>" name="Mob">
+                            </div>
+                            <div class="gen-info">
+                                <label>Date of Birth</label>
+                                <input class="form-input" readonly name="DOB" type="text" value="<%=data.DOB%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Caste</label>
+                                <input class="form-input" readonly name="Caste" type="text" value="<%=data.Caste%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Category</label>
+                                <input class="form-input" readonly required name="Category" value="<%=data.Category%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Religion</label>
+                                <input class="form-input" readonly type="text" name="Religion" value="<%=data.Religion%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Address</label>
+                                <textarea class="form-input" required style="margin-left: 0.33%;" cols="23" rows="3" class="my-2" name="FullAddress"><%=data.FullAddress%></textarea>
+                            </div>
+                            
+                            <div class="gen-info">
+                                <label >Gender</label>
+                                <input class="form-input" readonly type="text" name="Gender" value="<%=data.Gender%>">
+                            </div>
+                            <div class="gen-info">
+                                <label >Handicapped</label>
+                                <input class="form-input" readonly type="text" name="isHandicapped" width="10%" value="<%=data.isHandicapped%>">
+                            </div>
+                            <div class="gen-info">
+                                <input class="form-input" readonly type="text" width="10%">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-headings">
+                            <h5>Parent's Information</h5>
+                            <a id="Parents" class="showHideInfo btn btn-light">Show</a>
+                        </div>
+                        
+                        <div id="Parents-Information">
+                            <div class="gen-info">
+                                <label>Father's Education</label>
+                                <input class="form-input" readonly type="text" name="FathersEducation" value="<%=data.FathersEducation%>">
+                            </div>
+            
+                            <div class="gen-info">
+                                <label>Mother's Education</label>
+                                <input class="form-input" readonly type="text" name="MothersEducation" value="<%=data.MothersEducation%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Father's Occupation</label>
+                                <input class="form-input" readonly type="text" name="FathersOccupation" value="<%=data.FathersOccupation%>"> 
+                            </div>
+            
+                            <div class="gen-info">
+                                <label>Mother's Occupation</label>
+                                <input class="form-input" readonly type="text" name="MothersOccupation" value="<%=data.MothersOccupation%>">
+                            </div>
+                            <div class="gen-info"> 
+                                <label>Father's Work place</label>
+                                <input class="form-input" readonly type="text" name="FathersWorkPlace" value="<%=data.FathersWorkPlace%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Mother's Work place</label>
+                                <input class="form-input" readonly type="text" name="MothersWorkPlace" value="<%=data.MothersWorkPlace%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Father's Annual Income</label>
+                                <input class="form-input" readonly type="text" name="FathersAnnualIncome" value="<%=data.FathersAnnualIncome%>">
+                            </div>
+            
+                            <div class="gen-info">
+                                <label>Mother's Annual Income</label>
+                                <input class="form-input" readonly type="text" name="MothersAnnualIncome" value="<%=data.MothersAnnualIncome%>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="item-headings">
+                            <h5>Last School Information</h5>
+                            <a id="Last-School" class="showHideInfo btn btn-light">Show</a>
+                        </div>
+                        
+                        <div id="Last-School-Record" style="display: flex; flex-wrap: wrap; justify-content: space-between;border-bottom: 1px solid black;">
+                            <div class="gen-info">
+                                <label>School Name</label>
+                                <input class="form-input" readonly type="text" name="LastSchoolName" value="<%=data.LastSchoolName%>">
+                            </div>
+
+                            <div class="gen-info">
+                                <label>Passing Class</label>
+                                <input class="form-input" readonly name="LastPassingClass" value="<%=data.LastPassingClass%>">
+                            </div>
+
+                            <div class="gen-info">
+                                <label>Passing Year</label>
+                                <input class="form-input" readonly type="text" name="LastClassPassingYear" value="<%=data.LastClassPassingYear%>">
+                            </div>
+
+                            <div class="gen-info">
+                                <label>Grade</label>
+                                <input class="form-input" readonly type="text" name="LastClassGrade" value="<%=data.LastClassGrade%>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="item-headings">
+                            <h5>Bank Information</h5>
+                            <a id="Bank" class="showHideInfo btn btn-light">Show</a>
+                        </div>
+                        
+                        <div id="Bank-Information" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: flex-start;border-bottom: 1px solid black;">
+                            <div class="gen-info">
+                                <label>Bank Name</label>
+                                <input class="form-input" readonly name="BankName" type="text" value="<%=data.BankName%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>Branch</label>
+                                <input class="form-input" readonly name="Branch" type="text" value="<%=data.Branch%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>AccountNo</label>
+                                <input class="form-input" readonly name="AccountNo" type="text" value="<%=data.AccountNo%>">
+                            </div>
+                            <div class="gen-info">
+                                <label>IFSC Code</label>
+                                <input class="form-input" readonly name="IFSC" type="text" value="<%=data.IFSC%>">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <button hidden id="submit-form" type="submit" value="Submit" class="btn btn-success" >Submit</button>
+                    </div>
+                
+                    
+                </div>
+            </form>
+        </div>
+        
+        <div class="footer-container">
+            <div style="display: flex; justify-content: space-around;">
+                <input class="btn btn-success" id="download-button" value="Download as PDF">
+                <input class="btn btn-success" id="edit-profile" value="Edit">
+            </div>
+        </div>
+        
+    </div>
+   
+</body>
+
+<script src="/js/pdfCreator.js"></script>
+<script src="/js/studentProfile.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+

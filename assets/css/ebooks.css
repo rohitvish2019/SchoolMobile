@@ -1,0 +1,93 @@
+body{
+    background: linear-gradient(180deg, #0a807c 1%, #ebe6e6 30%, #f1f1ec 105%);
+ }
+ 
+ .header-container{
+     width: 100%;
+     height: 10%;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .body-container{
+    margin-top: 3%;
+     width: 100%;
+     height: 65%;
+     display: flex;
+     justify-content: center;
+     
+ }
+ 
+ .footer-container{
+     width: 100%;
+ }
+ 
+.center-body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.center-top{
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 12%;
+    width: 100%;
+    margin-bottom: 1%;
+}
+ .school-name-container{
+    height: 70px;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+}
+
+.school-name-container h2{
+    font-weight: bolder;
+    color: #cbd6d1;
+    text-shadow: #888;
+
+}
+
+.school-name-container h6{
+    color:#2c6bc9
+}
+
+.ebooks-container{
+    width: 100%;
+    padding: 3%;
+    overflow-x: scroll;
+}
+.ebooks-container a{
+    width: 15%;
+    margin-top: 1%;
+    margin-left: 1%;
+    min-width: 80px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+
+.center-top div{
+    display: inline;
+    margin-right:5% ;
+}
+
+.center-top div label{
+    font-weight: bold;
+    margin-right: 1%;
+}
+
+
+@media screen and  (max-width: 560px){
+    .body-container{
+        margin-top: 10%;
+         
+    }
+    .center-top{
+        height: 10%;
+        width: 100%;
+    }
+}

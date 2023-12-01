@@ -1,0 +1,221 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<header>
+  <div class="logo-container">
+    <a class="navbar-brand logo" href="/user/login">
+      <img id="logo" style="margin: 2%; padding: 0%;" src="<%=imgdir%>/logo.png" alt="Bootstrap" width="100%" height="100%">
+    </a>
+  </div>
+
+  <div class="options-container" id="header-list">
+    <ul class="horizontal-list me-auto mb-2 mb-lg-0">   
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Student
+        </a>
+        <ul class="dropdown-menu header-items" >
+          <li><a class="dropdown-item" href="/registration/new">New Registration</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass/fee">Fees submission</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass/result">Result</a></li>
+          <li><a class="dropdown-item" href="/ebooks/home">e-Books</a></li>
+          <li><a class="dropdown-item disabled" href="#">e-Learning</a></li>
+          <li><a class="dropdown-item" href="#"></a></li>
+        </ul>
+      </li>
+
+      <%if(role === 'Admin'){%>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Teacher
+        </a>  
+        <ul class="dropdown-menu header-items">
+          <li><a class="dropdown-item" href="/teachers/home">Show all</a></li>
+          <li><a class="dropdown-item" href="/Attendance/students/home">Student Attendance</a></li>
+        </ul>
+      </li>
+      <%}%>
+      <%if(role === 'Admin'){%>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="/abc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Admin
+        </a>
+        <ul class="dropdown-menu header-items">
+          <li><a class="dropdown-item" href="/fee/updateFeeForm">Update annual fee</a></li>
+          <li><a class="dropdown-item" href="/student/upgradeClass">Annual class upgrade</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass">Discharge</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass/admission">Admission approval</a></li>
+          <li><a class="dropdown-item" href="/user/new">Add new user</a></li>
+          <li><a class="dropdown-item" href="/user/showAll">Show users</a></li>
+          <li><a class="dropdown-item disabled" href="#">Change crousal</a></li>
+          <li><a class="dropdown-item disabled" href="#">Change Contact Info</a></li>
+        </ul>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Notice
+        </a>  
+        <ul class="dropdown-menu header-items">
+          <li><a class="dropdown-item" href="/message/new">Add new</a></li>
+          <li><a class="dropdown-item disabled" href="#">View all</a></li>
+          
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Documents
+        </a>  
+        <ul class="dropdown-menu header-items">
+          <li><a class="dropdown-item" href="/reports/students">Old students</a></li>
+          <li><a class="dropdown-item" href="/reports/bulk/home">Bulk reports</a></li>
+        </ul>
+      </li>
+      <%}%>
+
+      
+    </ul>
+  </div>
+
+  <div id="Search">
+    <input id="searchBox" placeholder="Search student">
+    <ul id="studnets-list" class="studnets-list">
+    </ul>
+  </div>
+
+
+  <div class="profile-container">
+    <div class="edit-profile" id="profile-toggle">
+      <img height="100%" src="/images/edit-profile.png" alt="">
+    </div>
+    <div class="profile-details" id="profile-details">
+      <div class="profile-card" id="profile-data">
+        <h1><%=user.name%></h1>
+        <div class="profile-info">
+            <p><strong>Mobile:</strong> <%=user.Mobile%></p>
+            <p><strong>Username:</strong> <%=user.username%></p>
+            <p><strong>School Code:</strong> <%=user.SchoolCode%></p>
+            <p><strong>Role:</strong> <%=role%></p>
+            <p><strong>Address:</strong> <%=user.address%></p>
+        </div>
+        <button class="profile-button" id="change-password">Change Password</button>
+        <button class="profile-button">Edit</button>
+      </div>
+      <div id="change-password-div">
+        <h4 style="text-align: center;border-bottom: 1px solid;">Change password</h4>
+        <h5>Old Password</h5>
+        <input type="text" name="" id="oldpass" placeholder="Old Password">
+        <br/>
+        <h5>New Password</h5>
+        <input type="text" name="" id="newpass" placeholder="New Password">
+        <input type="text" name="" id="confpass" placeholder="Confirm Password">
+        <input class="profile-button" type="button" value="Change Now" id="update-password-button">
+        <input class="profile-button" type="button" value="Cancel" id="cancel-password-change" onclick="cancelPasswordChange()">
+      </div>
+    </div> 
+  </div>
+  <div class="options-container-mobile" id="header-list-mobile">
+    <ul class=" verticle-list mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Student
+        </a>
+        <ul class="dropdown-menu header-items">
+          <li><a class="dropdown-item" href="/registration/new">New Registration</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass/fee">Fees submission</a></li>
+          <li><a class="dropdown-item" href="/student/showByClass/result">Result</a></li>
+          <li><a class="dropdown-item disabled" href="#">Assign Home work</a></li>
+          <li><a class="dropdown-item disabled" href="#">Home work</a></li>
+          <li><a class="dropdown-item" href="#"></a></li>
+        </ul>
+      </li>
+      <%if(role === 'Admin'){%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Teacher
+          </a>  
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/teachers/home">Show all</a></li>
+            <li><a class="dropdown-item" href="/Attendance/students/home">Student Attendance</a></li>
+          </ul>
+        </li>
+        <%}%>
+        <%if(role === 'Admin'){%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/fee/updateFeeForm">Update annual fee</a></li>
+            <li><a class="dropdown-item" href="/student/upgradeClass">Annual class upgrade</a></li>
+            <li><a class="dropdown-item" href="/student/showByClass">Discharge</a></li>
+            <li><a class="dropdown-item" href="/student/showByClass/admission">Admission approval</a></li>
+            <li><a class="dropdown-item" href="/user/new">Add new user</a></li>
+            <li><a class="dropdown-item" href="/user/showAll">Show users</a></li>
+            <li><a class="dropdown-item disabled" href="#">Change crousal</a></li>
+            <li><a class="dropdown-item disabled" href="#">Global Message</a></li>
+            <li><a class="dropdown-item disabled" href="#">Change Contact Info</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Notice
+          </a>  
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/message/new">Add new</a></li>
+            <li><a class="dropdown-item disabled" href="#">View all</a></li>
+            
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Documents
+          </a>  
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/reports/students">Old students</a></li>
+            <li><a class="dropdown-item" href="/reports/bulk/home">Bulk reports</a></li>
+          </ul>
+        </li>
+        <%}%>
+        <li class="nav-item dropdown">
+          <a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link  active" href="/user/logout" role="button">
+            Logout
+          </a>
+        </li>
+    </ul>
+  </div>
+
+  <div class="noty-icon" id="noti-button">
+    <img src="/images/noty.webp" height="100%" width="100%" alt="">
+    <div class="noty-count">
+      
+    </div>
+    <div style="display: none;" id="notifications" class="notifications">
+      <h3 style="text-align: center;">Notifications</h3>
+      <ul id="notification-list">
+        <li><h6>No new items</h6></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="logout">
+    <a href="/user/logout" id="logout" class="btn btn-warning">Logout</a>
+  </div>
+
+  <div>
+    <a id="options"><img height="100%" width="100%" src="/images/options.png" alt=""></a>
+  </div>
+</header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+<script src="/js/header.js"></script>

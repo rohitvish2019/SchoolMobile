@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Submission Receipt</title>
+    <link rel="stylesheet" href="/css/fee_receipt.css">
+</head>
+<body>
+    <div class="receipt">
+        <img src="/schools/<%=SchoolCode%>/school-header.png" alt="School Logo" class="school-logo">
+        <div class="receipt-header">
+            <h2>Fee Submission Receipt</h2>
+            <p>Receipt No: <%=feeReport.Receipt_No%></p>
+        </div>
+        <div class="receipt-info">
+            <p><span class="info-label">Student Name:</span> <span class="info-value"><%=student.FirstName%> <%=student.LastName%></span></p>
+            <p><span class="info-label">Class:</span> <span class="info-value"><%=feeReport.Class%></span></p>
+            <p><span class="info-label">Date:</span> <span class="info-value"><%=feeReport.Payment_Date%></span></p>
+            <p><span class="info-label">Amount Paid:</span> <span class="info-value"><%=feeReport.Amount%></span></p>
+            <p><span class="info-label">Comment:</span> <span class="info-value"><%=feeReport.Comment%></span></p>
+        </div>
+        <p>Thank you for your payment!</p>
+    </div>
+    <script>
+        let item = document.getElementById('')
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!--This page will be rendered whwn user wants to update yearly fees for any class
+    Replication:
+    Click on update fees on menu in header
+-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/updateAnuualFeeForm.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <%- include('_header'); %>
+    </div>
+    <div class="body-container">
+        
+        <div class="center-body">
+            <h3 style="margin-left: 20%; color: white;">Update Anuual Fees</h3>
+            <table>
+                <tr>
+                    <th>Class</th>
+                    <th>Annual Fees</th>
+                    <th>Actions</th>
+                </tr>
+                <% for (let i=0;i<feesData.length;i++){%>
+                <tr id="<%=feesData[i].Class%>">
+                    <td><b>Class <%=feesData[i].Class%></b></td>
+                    <td><input readonly id="feesInput_<%=feesData[i].Class%>" type="text" value=<%=feesData[i].Fees%>></td>
+                    
+                    <td>
+                        <div class="dropdown" style='font-size:0.7rem'>
+                            <a id="actions_<%=feesData[i].Class%>" style='font-size:0.7rem' class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions
+                            </a>
+                            <ul style='font-size:0.7rem' class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item btn btn-success" id='editFee_<%=feesData[i].Class%>'>Edit</a></li>
+                                <li><a class="dropdown-item btn btn-primary" id='deleteFee_<%=feesData[i].Class%>'>Delete</a></li>
+                            </ul>
+                            <button hidden id="updateFee_<%=feesData[i].Class%>" class="btn btn-success">Update</button>
+                            
+                        </div>
+                    </td>
+                </tr>
+                <%}%>
+            </table>
+        </div>
+        <div class="right-side-panel">
+            <div>
+                <h3>Add New Fees</h3>
+                <form class="addNewFee" action="/fee/updateFee" method="POST">
+                  <input type="text" required name="Class" placeholder="Class">
+                  <input type="text" required name="Fees" placeholder="Fees">
+                  <button type="submit" class="btn btn-success">Add New Fee</button>
+                </form>
+              </div>
+        </div>
+
+        
+    </div>
+    <div class="footer-container">
+        <h3>Add New Fees</h3>
+                <form class="addNewFee" action="/fee/updateFee" method="POST">
+                  <input type="text" required name="Class" placeholder="Class">
+                  <input type="text" required name="Fees" placeholder="Fees">
+                  <button type="submit" class="btn btn-success">Add New Fee</button>
+                </form>
+              </div>
+    </div>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/updateFee.js"></script>
+

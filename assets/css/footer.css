@@ -1,0 +1,16 @@
+#footer{
+    background-color: transparent;
+    bottom: 0%;
+    width: 100%;
+    text-align: center;
+    height: 12%;
+    color: rgb(214, 224, 224);
+
+}
+
+@media screen and  (max-width: 560px){
+    #footer{
+        font-size: 0.6rem;
+    }
+}
+

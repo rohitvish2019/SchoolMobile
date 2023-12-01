@@ -1,0 +1,229 @@
+body{
+    background: linear-gradient(180deg, #0a807c 1%, #ebe6e6 30%, #f1f1ec 105%);
+    margin: 0.2%;
+}
+
+.header-container{
+    
+    width: 100%;
+    height: 10%;
+}
+
+.body-container{
+    
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.left-side-panel{
+    width: 25%;
+    height: 100%;
+}
+
+.right-side-panel{
+    
+    width: 15%;
+    height: 100%;
+}
+
+.selector{
+    height: 6%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-right: 5%;
+}
+
+.items-container{
+
+    height: 82%;
+    overflow-y: scroll;
+}
+
+.center-body{
+    
+    width: 85%;
+    height: 100%;
+    
+}
+
+.student-details label{
+    width: 100%;
+    display: block;
+}
+
+.student-details{
+    margin-bottom: 1%;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.news-container {
+    position: static;
+    margin-right: 2%;
+    margin-top:23%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #c0e5ee;
+    height: 76%;
+    margin-bottom: 2%;
+}
+
+table{
+    width: 99%;
+    overflow-y: scroll;
+    height: 80%;
+    
+}
+
+thead{
+    background-color: #0a807c;
+    color: white;
+}
+td, th, tr, input{
+    width: 8%;
+    text-align: center;
+    padding-top: 3%;
+    
+    
+}
+
+th, td{
+    border: 1px solid black !important;
+
+    font-weight: bold;
+}
+
+tr{
+    border:2px solid #0a807c !important;
+}
+
+label{
+    font-weight: bold;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+    height: 8%;
+    margin-top: 2%;
+}
+thead{
+    position: sticky;
+    top: 0;
+}
+
+input{
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    
+    text-transform: capitalize;
+    
+}
+.upper-center{
+    display: none;
+}
+figure { 
+    display: none;
+    position: absolute;
+    margin: auto;
+    top: 45%; bottom: 45%; left: 45%; right: 45%;
+    width: 6.250em; height: 6.250em;
+    animation: rotate 2.4s linear infinite;
+  }
+  .white { 
+    top: 0; bottom: 0; left: 0; right: 0; 
+    background: white; 
+    animation: flash 2.4s linear infinite;
+    opacity: 0;
+  }
+  .dot {
+    position: absolute;
+    margin: auto;
+    width: 2.4em; height: 2.4em;
+    border-radius: 100%;
+    transition: all 1s ease;
+  }
+  .dot:nth-child(2) { top: 0; bottom: 0; left: 0; background: #FF4444; animation: dotsY 2.4s linear infinite; }
+  .dot:nth-child(3) { left: 0; right: 0; top: 0; background: #FFBB33; animation: dotsX 2.4s linear infinite; }
+  .dot:nth-child(4) { top: 0; bottom: 0; right: 0; background: #99CC00; animation: dotsY 2.4s linear infinite; }
+  .dot:nth-child(5) { left: 0; right: 0; bottom: 0; background: #33B5E5; animation: dotsX 2.4s linear infinite; }
+  
+  @keyframes rotate {
+    0% { transform: rotate( 0 ); }
+    10% { width: 6.250em; height: 6.250em; }
+    66% { width: 2.4em; height: 2.4em; }
+    100%{ transform: rotate(360deg); width: 6.250em; height: 6.250em; }
+  }
+  
+  @keyframes dotsY {
+    66% { opacity: .1; width: 2.4em; }
+    77%{ opacity: 1; width: 0; }
+  }
+  @keyframes dotsX {
+    66% { opacity: .1; height: 2.4em;}
+    77%{ opacity: 1; height: 0; }
+  }
+  
+  @keyframes flash {
+    33% { opacity: 0; border-radius: 0%; }
+    55%{ opacity: .6; border-radius: 100%; }
+    66%{ opacity: 0; }
+  }
+
+  @media screen and  (max-width: 560px){
+    .upper-center{
+        display: block;
+        width: 100%;
+        height: 30%;
+        background-color: #b8dfdb;
+        border-radius: 1.5rem;
+        padding: 1%;
+        padding-left: 3%;
+    }
+    .student-details-mob{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .student-details-mob .std-item{
+       display: block;
+       width: 50%;
+    }
+    .student-details-mob label{
+        display: block;
+    }
+
+    .left-side-panel{
+        display: none;
+    }
+    h5{
+        font-size: 0.8rem !important;
+    }
+    th{
+        font-size: 0.7rem;
+    }
+    #popup{
+        height: 360px;
+        width: 90%;
+        border: 1px solid purple;
+        background-color: antiquewhite;
+        position: fixed;
+        top: 15%;
+        left: 5%;
+    }
+    .h3-head{
+        color: rgb(19, 139, 133) !important;
+    }
+
+}
+

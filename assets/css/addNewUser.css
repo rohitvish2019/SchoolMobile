@@ -1,0 +1,94 @@
+body{
+    background: linear-gradient(180deg, #0a807c 1%, #ebe6e6 150px, #f1f1ec 105%);
+}
+
+.header-container{
+
+    width: 100%;
+    height: 10%;
+}
+
+.body-container{
+
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.center-body{
+    margin-top: 4%;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form.two-column-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+select{
+    margin-bottom: 3% !important;
+}
+input[type="submit"] {
+    background-color: #0a807c;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #37635d;
+}
+
+input{
+    text-transform: capitalize;
+}
+
+.actions-pane{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.actions-pane input{
+    width: 40%;
+}

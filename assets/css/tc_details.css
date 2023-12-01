@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.certificate {
+    width: 700px; /* A4 width in pixels */
+    height: 1123px; /* A4 height in pixels */
+    margin: 50px auto;
+
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+
+.school-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.date {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.content {
+    margin: 30px 0;
+}
+
+.signature {
+    margin-top: 40px;
+}
+
+.seal {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+}
+
+p{
+	text-align:left
+}
+
+input{
+    text-transform: capitalize;
+}
+/* Add more styling as needed */
+

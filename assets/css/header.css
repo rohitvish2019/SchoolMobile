@@ -1,0 +1,308 @@
+
+header{
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+}
+.dropdown-menu.show {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.logo-container{
+    width: 5%;
+    margin-right: 2%;
+}
+
+.options-container{
+    width: 50%;
+}
+
+.options-container ul{
+    width: 100%;
+}
+.options-container ul li{
+    width: 12%;
+}
+
+#search{
+    width: 30%;
+    margin-top: 1%;
+    margin-left: -10%; 
+    
+}
+
+#search input{
+    width: 100%;
+    border-radius: 0.5rem;
+}
+#search input:focus{
+    border: none;
+}
+
+.horizontal-list {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}
+.profile-container{
+    width: 5%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+.noty-icon{
+    margin-top: 1%;
+    width: 5%;
+}
+.logout{
+    width: 5%;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.horizontal-list li {
+    display: inline-block  ;
+    margin: 0px 8px 8px 0px;
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin-right: 1%;
+    color: white;
+    padding-top: 3%;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+
+
+.notifications{
+    position: fixed;
+    top: 10%;
+    z-index: 5;
+    left: 72%;
+    height: 60%;
+    width: 20%;
+    background-color: #eaeeee;
+    color: black;
+    font-weight: 600;
+    overflow: scroll;
+    
+}
+
+.noti-item{
+    width: 96%;
+    margin: 2%;
+}
+.noty-count{
+    position: relative;
+    bottom: 105%; 
+    left: 50%;
+    background-color: rgb(236, 31, 65);
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    width: 55%;
+    border-radius: 1.5rem;
+    
+}
+
+
+.edit-profile{
+    height: 35px;
+    width: 35px;
+    margin-right: 3%;
+}
+
+.dropdown-item{
+    font-size: small;
+    font-weight: bold !important;
+    
+}
+
+#options{
+    display: none;
+}
+.studnets-list{
+    display: none;
+    position: relative;
+    z-index: 5;
+    overflow-y: scroll;
+    list-style: none;
+    background-color: #eaeeee;
+    width: 100%;
+    height: 300%;
+    padding: 0;
+    padding-left: 1%;
+}
+
+.studnets-list a{
+    color: rgb(5, 129, 109);
+    text-transform: none;
+    margin-top: 1%;
+    margin-left: 0;
+}
+
+.studnets-list a:hover{
+    font-weight: bold;
+    color: black;
+    
+}
+
+.profile-details{
+    display: none;
+    position: fixed;
+    height: 60%;
+    border: 1px solid #0b413e;
+    width: 25%;
+    z-index: 2;
+    right: 20%;
+    top: 10%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 3%;
+}
+.profile-card {
+    max-width: 400px;
+    margin: 0 auto;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 3px solid #3498db;
+}
+h1 {
+    color: #333;
+}
+p {
+    color: #666;
+}
+.profile-info {
+    text-align: left;
+    margin-top: 20px;
+}
+.profile-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#change-password-div{
+    display: none;
+    padding-bottom: 12%;
+    margin-bottom: 4%;
+}
+
+#change-password-div input{
+    margin-top: 4%;
+}
+.options-container-mobile{
+    display: none;
+}
+.header-items .dropdown-item:hover{
+    width: 820% !important;
+    border-radius: 1.3rem;
+    background-color: #9be7d5
+}
+#searchBox{
+    background-color: white;
+    color: black;
+}
+@media screen and  (max-width: 560px) {
+    header{
+        display: flex;
+        justify-content: flex-start;
+        height: 100%;
+    }
+    ul li .dropdown-item:hover{
+        width: 820% !important;
+        border-radius: 1.3rem;
+        background-color: #9be7d5
+    }
+    
+    .logo-container{
+        width: 15%;
+        margin-right: 2%;
+    }
+    
+    .options-container{
+        display: none;
+        width: 50%;
+    }
+    
+    #search{
+        width: 60%;
+        margin-top: 5%; 
+        margin-left: 5%;
+    }
+    
+    #search input{
+        width: 100%;
+    }
+    
+    .profile-container{
+        display: none;
+
+    }
+    #options{
+        display: block;
+        height: 70%;
+        margin-top: 35%;
+        margin-left: 30%;
+        width: 100%;
+    }
+    .noty-icon{
+        display: none;
+    }
+    .logout{
+        display: none;
+        width: 5%;
+        margin-top: 1%;
+        margin-left: 2%;
+    }
+    .options-container-mobile{
+        top: 11%;
+        position: fixed;
+        height: 80%;
+        width: 100%;
+        background-color: #9fb9b9;
+        z-index: 3;
+    }
+    .verticle-list{
+        margin-top: 2%;
+        color: rgb(15, 82, 82);
+        font-weight: bold;
+        list-style: none;
+        font-size: 1.3rem;
+    }
+    .verticle-list li{
+        margin-top: 8%;
+        width: 25%;
+    }
+    #header-list-mobile{
+        display: none;
+    }
+    #header-list{
+        display: none;
+    }
+    ul li .dropdown-item::selection{
+        width: 820% !important;
+        border-radius: 1.3rem;
+        background-color: #9be7d5
+    }
+    
+    
+}
+
+
+
+
+
+

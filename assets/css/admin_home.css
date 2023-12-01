@@ -1,0 +1,105 @@
+body{
+    background-color: #f8fafa !important;
+    height: 100vh;
+    padding: 0%;
+    margin: 0;
+}
+
+.header-container{
+    width: 100%;
+    height: 10%;
+    background-color: #535878;
+}
+.main-body{
+    height: 80%;
+    width: 100%;
+    display: flex;
+}
+.org-name{
+    width: 100%;
+    height: 10%;
+    color: #535878;
+    text-align: center;
+}
+.org-name h2{
+    font-weight: bolder;
+}
+.left-panel{
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+.right-panel{
+    width: 50%;
+    height: 94%;
+    background-color: white;
+    margin: 1%;
+    border-radius: .7rem;
+    padding: 1%;
+    text-align: center;
+}
+
+.notice-board{
+    width: 50%;
+    height: 95%;
+    background-color: white;
+    margin: 2%;
+    border-radius: .7rem;
+    padding: 1%;
+    text-align: center;
+}
+
+.notice-board,.quick-links, .right-panel{
+    -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 20px 1px #535878;
+}
+
+.quick-links{
+    width: 50%;
+    height: 95%;
+    background-color: white;
+    margin: 2%;
+    border-radius: .7rem;
+    padding: 1%;
+    text-align: center;
+}
+
+.box-heading{
+    background-color: #CEA0AA;
+    padding: -10%;
+    margin: -2.3%;
+    border-top-right-radius: .7rem;
+    border-top-left-radius: .7rem;
+    height: 8%;
+    color: #535878;
+    
+}
+
+.box-heading h5{
+    font-weight: bolder;
+    padding-top: 2%;
+}
+
+.quick-links-buttons{
+    margin-top: 5%;
+}
+
+.quick-links-buttons a{
+    width: 90%;
+    margin-left: 5%;
+    background-color: #9DB0CE;
+    margin-top: 5%;
+    color: #535878;
+    font-weight: bolder;
+}
+.quick-links-buttons a:hover{
+    background-color: #535878;
+    color: white;
+    box-shadow: 2px 2px 15px 1px grey;
+}
+
+.crousal-section{
+    margin-top: 5%;
+    height: 94%;
+}

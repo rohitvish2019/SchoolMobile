@@ -1,0 +1,1 @@
+document.getElementById('tc-download').addEventListener(terminateStudent(AdmissionNo))

@@ -1,0 +1,245 @@
+body{
+    
+    margin: 0.2%;
+    background: linear-gradient(180deg, #0a807c 1%, #ebe6e6 30%, #f1f1ec 105%);
+}
+
+.header-container{
+    
+    width: 100%;
+    height: 10%;
+}
+
+.body-container{
+    
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container{
+    
+    width: 100%;
+    height: 14%;
+}
+
+.left-side-panel{
+    width: 25%;
+    height: 100%;
+    
+}
+.news-container {
+    position: static;
+    margin-right: 2%;
+    margin-top:5%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #c0e5ee;
+    height: 80%;
+    margin-bottom: 2%;
+}
+
+.center-body{
+    
+    width: 100%;
+    height: 100%;
+    margin-right: 2%;
+}
+
+button{
+    margin-left: 3%;
+}
+
+#popup{
+    height: 360px;
+    width: 350px;
+    border: 1px solid purple;
+    background-color: antiquewhite;
+    position: fixed;
+    top: 25%;
+    left: 40%;
+}
+.student-details label{
+    width: 100%;
+    display: block;
+}
+
+#popup label{
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+#popup input, textarea{
+    width: 50%;
+}
+
+#popup textarea{
+    margin-top: 3%;
+}
+#close-button{
+    position: relative;
+    top: 2%;
+    left: 90%;
+    width: 8%;
+    height: 8%;
+}
+
+table{
+    overflow-y: scroll;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    border-radius: 50%;
+    
+}
+
+tr{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 2%;
+    text-align: center;
+    
+}
+
+td, th{
+    width: 17%;
+    padding-top: 1%;
+    padding: auto;
+    
+}
+
+th{
+    
+    background-color: #2b443b;
+    color: #c4ebeb;
+    padding-bottom: 0.7%;
+    
+}
+td{
+    background-color: #b8dfdb;
+    color: #0c2b32;
+    margin-top: 0.3%;
+    
+}
+
+
+.student-details{
+    margin-bottom: 1%;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+.toggeler{
+    height: 30px;
+    width: 100%;
+    border: 1px solid #0a807c;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 3%;
+ 
+}
+
+span{
+    text-align: center;
+    width: 50%;
+    border: 1px dotted #0a807c ;
+}
+
+.fee-details{
+    background-color: #0a807c;
+    
+}
+
+.dropdown .btn{
+    font-size:1rem;
+    padding:auto;
+    height: 90%;
+}
+
+.fee-history{
+    background-color: transparent;
+    
+}
+
+
+#fees-history{
+    width: 100%;
+    
+}
+
+#fees-details{
+    width: 100%;
+}
+
+.details-div{
+    height: 80%;
+    overflow-y: scroll;
+}
+
+input{
+    text-transform: capitalize;
+}
+.upper-center{
+    display: none;
+}
+
+@media screen and  (max-width: 560px){
+    .upper-center{
+        display: block;
+        width: 100%;
+        height: 30%;
+        background-color: #b8dfdb;
+        border-radius: 1.5rem;
+        padding: 1%;
+        padding-left: 3%;
+    }
+    .student-details-mob{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .student-details-mob .std-item{
+       display: block;
+       width: 50%;
+    }
+    .student-details-mob label{
+        display: block;
+    }
+
+    .left-side-panel{
+        display: none;
+    }
+    h5{
+        font-size: 0.8rem !important;
+    }
+    
+    #popup{
+        height: 360px;
+        width: 90%;
+        border: 1px solid purple;
+        background-color: antiquewhite;
+        position: fixed;
+        top: 15%;
+        left: 5%;
+    }
+    .h3-head{
+        color: rgb(19, 139, 133) !important;
+    }
+    th, td{
+        font-size: 0.6rem;
+        font-weight: bold;
+    }
+    
+    .dropdown .btn{
+        font-size:0.6rem;
+        padding:3%
+    }
+    
+}

@@ -1,0 +1,104 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/marksheet-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="marksheet" id="marksheet">
+        <div id="logo">
+            <img style="margin-top: 5%; margin-bottom: 3%;" src="/schools/<%=SchoolCode%>/school-header.png" alt="school logo" srcset="" width="82%">
+        </div>
+        <div class="error-text">
+            
+        </div>
+        
+        <div class="student-info">
+            <div class="row">
+                <div class="label">Admission No:</div>
+                <div class="value" id="admno"><%=student.AdmissionNo%></div>
+                <div class="label">Class:</div>
+                <div class="value"><%=student.Class%></div>
+                <div class="label">Roll No:</div>
+                <div class="value">15</div>
+            </div>
+            <div class="row">
+                <div class="label" >Student Name:</div>
+                <div class="value" id="student_name"><%=student.FirstName%> <%=student.LastName%></div>
+                <div class="label">Father's Name:</div>
+                <div class="value"><%=student.FathersName%></div>
+                <div class="label">Mother's Name:</div>
+                <div class="value"><%=student.MothersName%></div>
+            </div>
+            <div class="row">
+                <div class="label">Aadhar No:</div>
+                <div class="value"><%=student.AadharNumber%></div>
+                <div class="label">Samagra ID:</div>
+                <div class="value"><%=student.SSSM%></div>
+                <div class="label">Date of Birth:</div>
+                <div class="value"><%=student.DOB%></div>
+            </div>
+            <div class="row">
+                <div class="label">Gender:</div>
+                <div class="value"><%=student.Gender%></div>
+                <div class="label">Passing Year:</div>
+                <div class="value"><%=student.Session + 1%></div>
+                <div class="label">Overall Score:</div>
+                <div class="value"><%=student.TotalGrade%></div>
+            </div>
+        </div>
+        <div class="result-section">
+            <h4>Academic performace details</h4>
+            <%=marks%>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subjects</th>
+                        <%for(let i=0;i<terms.length;i++){%>
+                            <th><%=terms[i]%></th>
+                        <%}%>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(let i=0;i<sub_list.length;i++){%>
+                        <tr>
+                            <td><%=sub_list[i]%></td>
+                            <%for(let j=0;j<terms.length;j++){%>
+                                <td><%=marks[terms[j]][sub_list[i]]*100/total_marks[j]%></td>
+                            <%}%>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <div class="official-section">
+            <div class="signature">
+                <div class="role">Principal's Signature:</div>
+                <div class="date">Date:</div>
+            </div>
+            <div class="signature">
+                <div class="role">Class Teacher's Signature:</div>
+                <div class="date">Date:</div>
+            </div>
+            <div class="signature">
+                <div class="role">Parent's Signature:</div>
+                <div class="date">Date:</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+    <div>
+        <button id="download-marksheet" class="btn btn-success my-4 download-button">Download</button>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js" integrity="sha512-w3u9q/DeneCSwUDjhiMNibTRh/1i/gScBVp2imNVAMCt6cUHIw6xzhzcPFIaL3Q1EbI2l+nu17q2aLJJLo4ZYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/pdfCreator.js"></script>
+<script src="/js/getMarksheet.js"></script>
+
+
+
+

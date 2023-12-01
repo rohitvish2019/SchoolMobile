@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: small;
+}
+
+.marksheet {
+    width: 210mm;
+    height: 297mm;
+    margin-left: 0%;
+    padding-left: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+
+.student-info {
+    margin-bottom: 0px;
+    width: 82%;
+    margin-left: 2%;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.label {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.value {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.result-section table {
+    width: 82%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    
+}
+
+.result-section th, .result-section td {
+    border: 1px solid #ccc;
+    padding: 4px;
+    text-align: center;
+}
+
+.official-section {
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8%;
+}
+
+.signature {
+    flex: 1;
+    text-align: left;
+    padding: 10px;
+}
+
+.role {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 14px;
+}
+
+@media print {
+    .marksheet {
+        border: 1px solid black;
+        box-shadow: none;
+        background-color: transparent;
+    }
+}
+
+h4{
+    margin-bottom:3%;
+    margin-top: 2%;
+}
+
+.download-button{
+    position: fixed;
+    top: 5%;
+    right: 5%;
+
+}
+
+.error-text{
+    color: red;
+    font-size: medium;
+    text-align: left;
+    margin: 1%;
+    font-weight: bold;
+}
+
+input{
+    text-transform: capitalize;
+}

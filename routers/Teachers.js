@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const TeachersController = require ('../controller/Teachers');
+router.get('/home', TeachersController.home);
+router.post('/addNew', TeachersController.addNewTeacher);
+router.post('/update', TeachersController.updateTeacherDetails);
+router.post('/remove', TeachersController.removeTeacher);
+router.get('/activate/:id', TeachersController.markActive);
+router.get('/deactivate/:id', TeachersController.markInActive);
+router.get('/inActives', TeachersController.getInActiveTeachers);
+module.exports = router;

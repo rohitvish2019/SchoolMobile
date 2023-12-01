@@ -1,0 +1,183 @@
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/fee_details.css">
+</head>
+<body>
+    <div class="header-container">
+        <%- include('_header'); %>
+    </div>
+    <div class="upper-center">
+        <h3 style="margin-bottom: 1%;">Student Details</h3>
+        <div class="student-details-mob">
+            <div class="std-item">
+                <label for=""><small>Admission No</small></label>
+                <label for="" id="AdmissionNoFees"><b><%=student.AdmissionNo%></b></label>
+            </div>
+            <div class="std-item">
+                <label for=""><small>Name</small></label>
+                <label for=""><b><%=student.FirstName%> <%=student.LastName%></b></label>
+            </div>
+            <br>
+            <div class="std-item"> 
+                <label for=""><small>Class</small></label>
+                <label for=""><b><%=student.Class%></b></label>
+            </div>
+            <br>
+            <div class="std-item">
+                <label for=""><small>Father's Name</small></label>
+                <label for=""><b><%=student.FathersName%></b></label>
+            </div>
+            <br>
+            <div class="std-item">
+                <label for=""><small>Mother's Name</small></label>
+                <label for=""><b><%=student.MothersName%></b></label>
+            </div>
+        </div>
+    </div>
+    <div class="body-container">
+        <div class="left-side-panel news-container">
+            <div class="student-details">
+                <h3 style="margin-bottom: 10%;">Student Details</h3>
+                <div>
+                    <label for=""><small>Admission No</small></label>
+                    <label for="" id="AdmissionNoFees"><b><%=student.AdmissionNo%></b></label>
+                </div>
+                <div>
+                    <label for=""><small>Name</small></label>
+                    <label for=""><b><%=student.FirstName%> <%=student.LastName%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Class</small></label>
+                    <label for=""><b><%=student.Class%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Father's Name</small></label>
+                    <label for=""><b><%=student.FathersName%></b></label>
+                </div>
+                <br>
+                <div>
+                    <label for=""><small>Mother's Name</small></label>
+                    <label for=""><b><%=student.MothersName%></b></label>
+                </div>
+            </div>
+        </div>
+        <div class="center-body">
+            <h3 class="h3-head" style="text-align: center; color: white; font-weight: bolder;">Fees Submission & History</h3>
+            <div id="toggler_button" class="toggeler">
+                <span style="color: white;" class="fee-details" id="details-button"><h5>Fees Details</h5></span>
+                <span class="fee-history" id="history-button-pay"><h5>Payment History</h5></span>
+                <span class="fee-history" id="history-button-con"><h5>Concession History</h5></span>
+            </div>
+            <div id="fee-details" class="details-div">
+                <table id="fee-details-container">
+                    <tr>
+                        <th>Class</th>
+                        <th>Total</th>
+                        <th>Concession</th>
+                        <th>Paid</th>
+                        <th>Remaining</th>
+                        <th>Actions</th>
+                    </tr>
+                    <% for(let i=0;i<feesList.length;i++){%>
+                        <tr>
+                            <td><%=feesList[i].Class%></td>
+                            <td><%=feesList[i].Total%></td>
+                            <td><%=feesList[i].Concession%></td>
+                            <td><%=feesList[i].Paid%></td>
+                            <td><%=feesList[i].Remaining%></td>
+                            <td>
+                                <div class="dropdown" style='font-size:0.7rem'>
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Actions
+                                    </a>
+                                    <ul style='font-size:0.7rem' class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><button class='dropdown-item btn btn-success' id='pay_<%=feesList[i].Class%>_<%=feesList[i].AdmissionNo%>' onclick="openPopup('<%=feesList[i].Class%>_<%=feesList[i].AdmissionNo%>_submit')">Pay</button></li>
+                                        <li><button class='dropdown-item btn btn-success' id='concession_<%=feesList[i].Class%>_<%=feesList[i].AdmissionNo%>' onclick="openPopup('<%=feesList[i].Class%>_<%=feesList[i].AdmissionNo%>_con')">Concession</button></li> 
+                                    </ul>
+                                    
+                                </div>
+                            </td>
+                            
+                            
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+
+            <div id="fee-history" style="display: none;" class="details-div">
+                <table id="fee-history-dynamic-container">
+                    <tr style="width: 100%;">
+                        <th>Class</th>
+                        <th>Amount</th>
+                        <th>Payment_Date</th>
+                        <th>Comment</th>
+                        <th>Actions</th>
+                        <th>Paid To</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="concession-history" style="display: none;" class="details-div">
+                <table id="concession-history-dynamic-container">
+                    <tr style="width: 100%;">
+                        <th>AdmissionNo</th>
+                        <th>Class</th>
+                        <th>Amount</th>
+                        <th>Concessioon Date</th>
+                        <th>Comment</th>
+                        <th>Concession By</th>
+                    </tr>
+                    
+                </table>
+            </div>
+            <div id="popup" style="display: none;">
+       
+                <div  id="close-button"><img id="cross" src="/images/cross.png" alt="" srcset="" height="100%" width="100%"></div>
+                <div style="text-align: center; position: relative; left: 15%;">
+                    <b>
+                        <input id='purpose' style="border: none; background-color: transparent;" type="text" value="Fees pay">
+                    </b>   
+                </div>
+                <div class="form-item">
+                    <label>Ad. No</label>
+                    <input required readonly id='AdmissionNo_fee' value="<%=feesList[0].AdmissionNo%>">
+                </div>
+                
+                <div class="form-item">
+                    <label>Class</label>
+                    <select id="Class_fee" style="width: 25%;">
+                        <%for (let i=0;i<feesList.length;i++){%>
+                            <option required class="class_option" id="<%=feesList[i].Class%>" value="<%=feesList[i].Class%>"><%=feesList[i].Class%></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="">Amount</label>
+                    <input required id="Amount_fee" type="text" placeholder="Amount">
+                </div>
+                <!--
+                <div class="form-item">
+                    <label for="">Date</label>
+                    <input id="date_fee" type="date" name="" id="">
+                </div>
+                -->
+                <div class="form-item">
+                    <label for="">Comment</label>
+                    <textarea id="comment_fee" cols="20" rows="2"></textarea>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <button class="btn btn-success" id='submit_fee' onclick="submitFeeOrConcession()">Pay</button>
+                </div>
+                    
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="/js/fees_details.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
